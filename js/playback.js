@@ -9,4 +9,34 @@ $(document).ready(function() {
         // etc, a scroll step, a highlight step, etc.
     
     }
-})
+});
+
+var scrolling = function (finish) {
+	$('html,body').animate({
+		scrollTop: finish
+	}, 'swing', 1000);
+};
+
+var fillForms =  function (forms) {
+	for (var form in forms) {
+		selector = "[" + forms.attribute + "=" + form + "]"
+		$('html').find(selector).val = forms[form];
+	}
+}
+
+// var mouseMove = function () {
+// 	$('body').css('cursor','none');
+// 	$('body').prepend("<img id=cursor4432 src='http://i.stack.imgur.com/sAqmU.png' >");
+// 	$("#cursor").animate({
+// 			left: 
+// 		,	right: 
+	
+// 	}, 400);
+
+// }
+
+
+
+
+
+
