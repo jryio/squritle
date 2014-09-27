@@ -12,11 +12,12 @@
     ,   "content_scripts": [
             {
                     "matches": ["https://*/*", "http://*/*"]
-                ,   "js": ["js/jquery.js"]
+                ,   "js": ["js/jquery.js", "js/playback.js"]
             }
         ]
     ,   "web_accessible_resources": [
-            "js/popup.js"
+                "js/record_dialog.js"
+            ,   "js/playback.js"
         ]
     ,   "permissions": [
         "tabs", "http://*/*", "https://*/*"
