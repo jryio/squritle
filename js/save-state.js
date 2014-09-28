@@ -26,7 +26,8 @@ var saveState = function () {
         s.addInput(f);
     });
     var hash = generateHash(s);
-    window.prompt("Copy link:", window.location.href + "?squirtle-hash=" + hash + "#endHash");
+    //window.prompt("Copy link:", window.location.href + "?squirtle-hash=" + hash + "#endHash");
+    window.open(window.location.href + "?squirtle-hash=" + hash + "#endHash", "_blank");
 }
 
 saveState();
