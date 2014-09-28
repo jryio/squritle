@@ -32,7 +32,7 @@ var fillForms =  function (inputs) {
 		    element.val(input.value);
         }
 	});
-}}
+}
 
 
 
