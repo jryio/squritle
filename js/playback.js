@@ -32,7 +32,8 @@ var fillForms =  function (inputs) {
 		    element.val(input.value);
         }
 	});
-}
+}}
+
 
 
 // var mouseMove = function () {
