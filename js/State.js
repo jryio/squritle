@@ -6,13 +6,14 @@ var State = function (offset) {
     }
 }
 
-var Input = function (attribute, id, type) {
+var Input = function (attribute, id, type, value) {
     this.attributeType = attribute;
     this.id = id;
     this.type = type;
+    this.value = value;
 }
 
-var TextInput = function (attribute, id, value) {
+var TextInput = function (attribute, id, value, type) {
     this.base = Input;
     this.base(attribute, id, "text");
     this.value = value;
@@ -20,4 +21,17 @@ var TextInput = function (attribute, id, value) {
 
 TextInput.prototype = Input
 
-// support for other inputs like radio, checkbox later
+var CheckboxInput = function(attribute, id, value) {
+    this.base = Input;
+    this.base(attribute, id, "checkbox");
+    this.value = value;
+}
+
+var RadioButtonsInput = function(attribute, id, value) {
+    this.base = Input;
+    this.base(attribute, id, "radiobutton");
+    this.value = value;
+}
+
+
+

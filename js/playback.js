@@ -24,12 +24,12 @@ var scrolling = function (finish) {
 var fillForms =  function (inputs) {
 	for (var input in inputs) {
 		var selector = "[" + input.attributeType + "='" + input.id + "']";  
-		var element = $('html').find(selector);
-		if (input.type == 'text') {
-			element.val(input.value);
-		}
+		var element = $('html').find(selector)[0];
+		element.val(input.value);
+				
 	}
 }
+
 
 
 // var mouseMove = function () {
