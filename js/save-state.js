@@ -27,7 +27,9 @@ var saveState = function () {
     });
     var hash = generateHash(s);
     //window.prompt("Copy link:", window.location.href + "?squirtle-hash=" + hash + "#endHash");
-    window.open(window.location.href + "?squirtle-hash=" + hash + "#endHash", "_blank");
+    base_link = /(.+)\?squirtle-hash/.exec(window.location.href);
+    base_link = base_link == null ? window.location.href : base_link[1];
+    window.open(base_link + "?squirtle-hash=" + hash + "#endHash", "_blank");
 }
 
 saveState();
