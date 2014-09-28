@@ -1,34 +1,37 @@
 $(document).ready(function() {
-    var href = window.location.href;
+    
+    // import api
+    var s = document.createElement("script");
+    s.type="text/javascript";
+    s.src = chrome.extension.getURL("js/API.js");
+    document.body.appendChild(s);
+
+    // parse hashcode
+    var href = decodeURI(window.location.href);
     if (href.indexOf("?squirtle-hash=") !== -1) {
         href = href.slice(href.indexOf("?squirtle-hash=") + "?squirtle-hash=".length);
         var hashCode = href.slice(0, href.indexOf("#endHash"));
-        
-        // decrypt the hash with kevin's function, which should return an array of Steps
-        // iterate through each Step and exectute the action
-        // etc, a scroll step, a highlight step, etc.
-
+        var state = parseHash(hashCode);
         fillForms(state.inputs);
         scrolling(state.offset);
-
-    
     }
 });
 
 var scrolling = function (finish) {
-	$('html,body').animate({
-		scrollTop: finish
-	}, 'swing', 1000);
+    var body = $("html, body");
+    body.animate({scrollTop:finish}, '1000', 'swing', function() { });
 };
 
 var fillForms =  function (inputs) {
-	for (var input in inputs) {
+	inputs.forEach(function(input) {
 		var selector = "[" + input.attributeType + "='" + input.id + "']";  
 		var element = $('html').find(selector);
-		if (input.type == 'text') {
-			element.val(input.value);
-		}
-	}
+        if (input.type === "textarea") {
+            element.html(input.value);
+        } else {
+		    element.val(input.value);
+        }
+	});
 }
 
 
@@ -42,9 +45,3 @@ var fillForms =  function (inputs) {
 // 	}, 400);
 
 // }
-
-
-
-
-
-

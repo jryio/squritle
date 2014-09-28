@@ -12,7 +12,7 @@
     ,   "content_scripts": [
             {
                     "matches": ["https://*/*", "http://*/*"]
-                ,   "js": ["js/jquery.js", "js/playback.js", "js/State.js"]
+                ,   "js": ["js/jquery.js", "js/playback.js", "js/State.js", "js/API.js"]
             }
         ]
     ,   "web_accessible_resources": [
@@ -20,6 +20,7 @@
             ,   "js/playback.js"
             ,   "js/save-state.js"
             ,   "js/State.js"
+            ,   "js/API.js"
         ]
     ,   "permissions": [
         "tabs", "http://*/*", "https://*/*"

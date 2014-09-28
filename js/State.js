@@ -6,18 +6,9 @@ var State = function (offset) {
     }
 }
 
-var thing = "hello";
-
-var Input = function (attribute, id, type) {
+var Input = function (attribute, id, value, type) {
     this.attributeType = attribute; // id or name
-    this.id = id; // gonna be the value of the attribute; so like id=id, or id=name
+    this.id = id; // gonna be the value of the attribute; so like id=id, or id=name;
+    this.value = value;
     this.type = type;
 }
-
-var TextInput = function (attribute, id, value) {
-    this.base = Input;
-    this.base(attribute, id, "text");
-    this.value = value;
-}
-
-TextInput.prototype = Input
