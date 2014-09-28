@@ -43,11 +43,20 @@ var saveState = function () {
         var f = new Input(type, identification, value, elType);
         s.addInput(f);
     });
+
     var hash = generateHash(s);
     //window.prompt("Copy link:", window.location.href + "?squirtle-hash=" + hash + "#endHash");
     base_link = /(.+)\?squirtle-hash/.exec(window.location.href);
     base_link = base_link == null ? window.location.href : base_link[1];
-    window.open(base_link + "?squirtle-hash=" + hash + "#endHash", "_blank");
+    //window.open(base_link + "?squirtle-hash=" + hash + "#endHash", "_blank");
+
+    var link = base_link + "?squirtle-hash=" + hash;
+    $.ajax({
+            type: 'GET'
+        ,   url: "https://api-ssl.bitly.com/v3/shorten?access_token=55328a486a54e320b4902d0d9f06c82b2c87b757&longUrl=" + link
+    }).done(function(data) {
+        window.prompt("Copy link:", data.url);
+    });
 }
 
 saveState();

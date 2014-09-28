@@ -10,7 +10,7 @@ $(document).ready(function() {
     var href = decodeURI(window.location.href);
     if (href.indexOf("?squirtle-hash=") !== -1) {
         href = href.slice(href.indexOf("?squirtle-hash=") + "?squirtle-hash=".length);
-        var hashCode = href.slice(0, href.indexOf("#endHash"));
+        var hashCode = href;
         var state = parseHash(hashCode);
         highlight(state.highlight);
         fillForms(state.inputs);
