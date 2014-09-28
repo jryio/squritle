@@ -28,6 +28,8 @@ var fillForms =  function (inputs) {
 		var element = $('html').find(selector);
         if (input.type === "textarea") {
             element.html(input.value);
+        } else if (element.attr("type") === "checkbox") {
+            element.prop('checked', input.value);   
         } else {
 		    element.val(input.value);
         }

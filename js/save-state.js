@@ -22,7 +22,14 @@ var saveState = function () {
             identification = $(this).attr("name");
         }
 
-        var f = new Input(type, identification, $(this).val(), elType);
+        value = $(this).val();
+
+        // special handling if it's a checkbox
+        if ($(this).attr("type") === "checkbox") {
+            value = $(this).prop('checked');
+        }
+
+        var f = new Input(type, identification, value, elType);
         s.addInput(f);
     });
     var hash = generateHash(s);
