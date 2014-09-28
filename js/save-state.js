@@ -7,9 +7,20 @@ s2.src=chrome.extension.getURL("js/API.js");
 document.body.appendChild(s);
 document.body.appendChild(s2);
 
+var getSelectedText = function () {
+    var text = "";
+    if (typeof window.getSelection != "undefined") {
+        text = window.getSelection().toString();
+    } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+        text = document.selection.createRange().text;
+    }
+    return text;
+}
+
 var saveState = function () {
     var offset = $(window).scrollTop();
-    var s = new State(offset);
+    var highlighted = new Highlight(getSelectedText());
+    var s = new State(offset, highlighted);
     $('input, textarea').each(function() {
         if (!$(this).attr("id") && !$(this).attr("name")) return;
 

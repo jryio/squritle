@@ -12,10 +12,16 @@ $(document).ready(function() {
         href = href.slice(href.indexOf("?squirtle-hash=") + "?squirtle-hash=".length);
         var hashCode = href.slice(0, href.indexOf("#endHash"));
         var state = parseHash(hashCode);
+        highlight(state.highlight);
         fillForms(state.inputs);
         scrolling(state.offset);
     }
 });
+
+var highlight = function (to_highlight) {
+    text_to_highlight = to_highlight.text;
+    document.body.innerHTML = document.body.innerHTML.replace(text_to_highlight, "<mark>" + text_to_highlight + "</mark>");
+}
 
 var scrolling = function (finish) {
     var body = $("html, body");
