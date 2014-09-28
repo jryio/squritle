@@ -55,7 +55,7 @@ var saveState = function () {
             type: 'GET'
         ,   url: "https://api-ssl.bitly.com/v3/shorten?access_token=55328a486a54e320b4902d0d9f06c82b2c87b757&longUrl=" + link
     }).done(function(data) {
-        window.prompt("Copy link:", data.url);
+        window.prompt("Copy link:", data.data.url);
     });
 }
 
