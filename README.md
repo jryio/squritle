@@ -1,5 +1,4 @@
 #Squirtle
-========
 
 ### Features
 Squirtle allows you to save and reload any entered text on your current page. It will repopulate your fields with your previously entered text.
